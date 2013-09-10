@@ -7,7 +7,7 @@ var express = require('express');
 var routes = require('./routes');
 var user = require('./routes/user');
 var blog = require('./routes/blog');
-var ajax = require('./data/ajax');
+var ajax = require('./ajax');
 var http = require('http');
 var path = require('path');
 
