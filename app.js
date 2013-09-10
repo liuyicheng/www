@@ -19,7 +19,7 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
-app.use(express.static(path.join(__dirname, 'static')));
+app.use('/static', express.static(path.join(__dirname, 'static')));
 
 // development only
 if ('development' == app.get('env')) {
@@ -27,7 +27,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/blog', blog.index);
-app.get('/blog/:name', blog.read);
+app.get('/blog/:name', blog.print);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

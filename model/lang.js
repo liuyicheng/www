@@ -1,4 +1,4 @@
-var markdown = require('../markdown').markdown;
+var markdown = require('markdown').markdown;
 
 exports.reg = {
   trim: function (string) {
