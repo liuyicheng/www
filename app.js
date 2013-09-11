@@ -29,7 +29,7 @@ if ('development' == app.get('env')) {
 
 app.get('/blog', blog.index);
 app.get('/blog/write', blog.write);
-app.get('/blog/essay/:title', blog.print);
+app.get('/blog/essay/:id', blog.read);
 app.post('/ajax/blog/essay/write', ajax.blog.essay.write);
 
 http.createServer(app).listen(app.get('port'), function(){
