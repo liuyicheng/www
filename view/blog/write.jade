@@ -1,8 +1,0 @@
-extends ../layout
-
-block content
-  h1 blog write
-  form(action='/ajax/blog/essay/write', method='post', name='essay')
-    input(type='text', name='title')
-    textarea(name='body')
-    input(type='submit', value='submit')

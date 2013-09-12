@@ -5,7 +5,6 @@
 
 var express = require('express');
 var blog = require('./controller/blog');
-var ajax = require('./model/ajax');
 var http = require('http');
 var path = require('path');
 
@@ -20,7 +19,7 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'static')));
 
 // development only
 if ('development' == app.get('env')) {
@@ -28,9 +27,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/blog', blog.index);
-app.get('/blog/write', blog.write);
-app.get('/blog/essay/:id', blog.read);
-app.post('/ajax/blog/essay/write', ajax.blog.essay.write);
+app.get('/blog/:name', blog.read);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

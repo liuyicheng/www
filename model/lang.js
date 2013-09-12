@@ -1,3 +1,5 @@
+var markdown = require('../markdown').markdown;
+
 exports.reg = {
   trim: function (string) {
     return string.trim();
@@ -9,3 +11,5 @@ exports.reg = {
     return string.trim().replace(/ +/g, '-');
   }
 };
+
+exports.markdown = markdown;
