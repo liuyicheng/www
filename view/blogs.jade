@@ -1,0 +1,7 @@
+extends header
+
+block content
+  ul
+    each blog in blogs
+      li
+        a(href='blog/' + blog)= blog

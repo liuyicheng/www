@@ -4,6 +4,7 @@
  */
 
 var express = require('express');
+var index = require('./controller/index');
 var blog = require('./controller/blog');
 var http = require('http');
 var path = require('path');
@@ -26,6 +27,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+app.get('/', index.index);
 app.get('/blog', blog.index);
 app.get('/blog/:name', blog.print);
 
